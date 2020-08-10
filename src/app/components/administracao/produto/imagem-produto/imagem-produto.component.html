@@ -1,0 +1,37 @@
+<div class="step-wrapper">
+    <div class="container">
+
+        <div class="stepper">
+            <ul class="row">
+                <li class="col-md-3 active">
+                    <span data-text="Novo Produto"></span>
+                </li>
+                <li class="col-md-3 active">
+                    <span data-text="Capa"></span>
+                </li>
+                <li class="col-md-3">
+                    <span data-text="Outras Imagens"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default animate__animated animate__bounceInRight" style="margin-top: 30px;" id="forms">
+    <div class="panel-heading">Imagens Produto</div>
+    <div class="panel-body">
+        <form>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Selecione uma ou várias imagens para compor a galeria do produto. </label>
+                    <input type="file" class="form-control" placeholder="Capa">
+                </div>
+            </div>
+
+            <div class="text-right col-md-12">
+                <hr>
+                <button type="submit" class="btn btn-main" [routerLink]="['/administracao/produto/home ']" >Salvar</button>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.linear .icon {
+    font-size: 50px;
+}
+
+.linear .icon, .linear .mls {
+    display: block;
+    text-align: center;
+}
+
+hr {
+    border-color: #ffa400;
+}
+.shortcodes .list-group-item
+{padding:0;}
+
+.shortcodes .list-group-item a
+{padding:10px 15px;display:block;color:#666;}
+
+.shortcodes .list-group-item-custom a
+{padding:10px 15px;display:block;color: white !important; background-color: #ffa400;}
+
+.shortcodes .list-group-item a.active,.shortcodes .list-group-item a:hover
+{background-color:#ddd;}
+
+.list-group-item-custom a:hover
+{background-color:#ffa400 !important;}

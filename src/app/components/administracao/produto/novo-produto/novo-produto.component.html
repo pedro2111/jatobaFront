@@ -1,0 +1,83 @@
+<div class="step-wrapper animate__animated animate__bounceInRight">
+    <div class="container">
+
+        <div class="stepper">
+            <ul class="row">
+                <li class="col-md-3">
+                    <span data-text="Novo Produto"></span>
+                </li>
+                <li class="col-md-3">
+                    <span data-text="Capa"></span>
+                </li>
+                <li class="col-md-3">
+                    <span data-text="Outras Imagens"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default animate__animated animate__bounceInRight" style="margin-top: 30px;" id="forms">
+    <div class="panel-heading">Novo Produto</div>
+    <div class="panel-body">
+        <form novalidate [formGroup]="formulario" (submit)="cadastrar()">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" formControlName="nome" class="form-control" placeholder="Nome">
+                </div>
+                <div *ngIf="!formulario.controls['nome'].valid && formulario.controls['nome'].touched">
+                    <p class="text-warning">Nome deve ser preenchido!</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" formControlName="descricao" class="form-control" placeholder="Descrição">
+                </div>
+                <div *ngIf="!formulario.controls['descricao'].valid && formulario.controls['descricao'].touched">
+                    <p class="text-warning">Descrição deve ser preenchida!</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" formControlName="preco" class="form-control" placeholder="Preço">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <select class="form-control" formControlName="nomeCategoria" placeholder="Selecione uma categoria...">
+                        <option selected="true">Selecione uma categoria...</option>
+                        <option *ngFor="let cat of categorias">{{cat.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="!formulario.controls['nomeCategoria'].valid && formulario.controls['nomeCategoria'].touched">
+                    <p class="text-warning">Categoria deve ser preenchida!</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" formControlName="altura" class="form-control" placeholder="Altura">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" formControlName="largura" class="form-control" placeholder="Largura">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" formControlName="profundidade" class="form-control" placeholder="Comprimento">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" formControlName="peso" class="form-control" placeholder="Peso">
+                </div>
+            </div>
+
+            <div class="text-right col-md-12">
+                <hr>
+                <button type="submit" class="btn btn-main" [disabled]="!formulario.valid">Salvar e continuar</button>
+            </div>
+        </form>
+    </div>
+</div>
