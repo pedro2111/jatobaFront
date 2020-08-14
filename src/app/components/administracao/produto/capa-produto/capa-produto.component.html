@@ -22,7 +22,7 @@
         <form novalidate (submit)="upload()" enctype="multipart/form-data">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label class="control-label">Selecione apenas <b>uma</b> imagem abaixo para ser a capa do protudo:</label>
+                    <label class="control-label">Selecione apenas <b>uma</b> imagem para ser a capa do protudo (OBS: De preferência de fundo branco):</label>
                     <input type="file"  #imagemInput (change)="preview($event)" accept="image/png, image/jpeg, image/gif" class="form-control" placeholder="Capa">
                 </div>
                 <div class="mt-5" *ngIf="imagem">
@@ -37,9 +37,12 @@
 
             <div class="text-right col-md-12">
                 <hr>
+                <a class="btn btn-warning mr-2" (click)="reset()" style="margin-right: 5px;" >Limpar</a>
                 <button type="submit" class="btn btn-main" [disabled]="!imagem">Salvar Capa</button>
+                
             </div>
 
         </form>
+       
     </div>
 </div>

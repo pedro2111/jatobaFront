@@ -22,7 +22,19 @@ export class ProdutoService {
     return this.http.post<Produto>(`${URL_API}/produtos`,produto,httpOptions);
 
   }
-  listarCategorias(){
-    return this.http.get<Produto>(`${URL_API}/categorias`)
+
+  public listarCategorias(){
+    return this.http.get<Produto>(`${URL_API}/categorias`);
+  }
+
+  public listarProdutosImagens(){
+
+    return this.http.get(`${URL_API}/produtos/listarImagens`);
+
+  }
+
+  public listarProdutos(){
+
+    return this.http.get<Produto>(`${URL_API}/produtos`);
   }
 }

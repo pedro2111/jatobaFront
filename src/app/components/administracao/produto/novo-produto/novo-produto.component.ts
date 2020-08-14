@@ -47,7 +47,6 @@ export class NovoProdutoComponent implements OnInit {
           this.router.navigate([`/administracao/produto/novo/${res.id}/capa`]);
         }, 2000);
 
-
       }, (err) => {
         console.log(err)
       }

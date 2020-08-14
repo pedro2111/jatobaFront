@@ -19,17 +19,28 @@
 <div class="panel panel-default animate__animated animate__bounceInRight" style="margin-top: 30px;" id="forms">
     <div class="panel-heading">Imagens Produto</div>
     <div class="panel-body">
-        <form>
+        <form novalidate (submit)="upload()" enctype="multipart/form-data">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label class="control-label">Selecione uma ou várias imagens para compor a galeria do produto. </label>
-                    <input type="file" class="form-control" placeholder="Capa">
+                    <label class="control-label">Selecione uma ou várias imagens para compor a galeria do produto:</label>
+                    <input type="file" multiple #imagemInput (change)="preview($event)" accept="image/png, image/jpeg, image/gif"
+                        class="form-control" placeholder="Capa">
+                </div>
+                <div class="mt-5" *ngIf="imagens">
+                    <h5> Preview da imagem: </h5>
+                    <div style="float: left;" *ngFor="let imagemMin of imagensMin">
+                        <img class="product-image-thumb" style="max-width: 100px;" [src]="imagemMin">
+
+                    </div>
+
                 </div>
             </div>
 
-            <div class="text-right col-md-12">
+            <div class="text-right" >
                 <hr>
-                <button type="submit" class="btn btn-main" [routerLink]="['/administracao/produto/home ']" >Salvar</button>
+                <a class="btn btn-warning mr-2" (click)="reset()" style="margin-right: 5px;">Limpar</a>
+                <button type="submit" class="btn btn-main" [disabled]="!imagens">Salvar Imagens</button>
+
             </div>
 
         </form>

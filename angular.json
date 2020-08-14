@@ -26,11 +26,8 @@
             "styles": [
               "src/styles.css",
               "./node_modules/animate.css/animate.min.css"
-
             ],
-            "scripts": [
- 
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -45,7 +42,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -124,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "jatoba"
+    }
+  },
+  "defaultProject": "jatoba",
+  "cli": {
+    "analytics": "dc6dcd0c-f721-4a30-82fe-e08c83e2c2f6"
+  }
 }

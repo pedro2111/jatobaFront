@@ -31,14 +31,12 @@
 <div class="row">
 
     <!-- === product-item === -->
-
-    <div class="col-md-6 col-xs-6">
+    <div class="col-md-6 col-xs-6" *ngFor="let produto of produtos">
 
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -55,12 +53,10 @@
                     </a>
                 </div>
                 <div class="text">
-                    <h2 class="title h4"><a href="product.html">Green corner</a></h2>
+                    <h2 class="title h4"><a href="product.html">{{produto.nome}}</a></h2>
                     <sub>$ 1499,-</sub>
                     <sup>$ 1099,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -72,8 +68,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -92,9 +87,7 @@
                     <h2 class="title h4"><a href="product.html">Laura</a></h2>
                     <sub>$ 3999,-</sub>
                     <sup>$ 3499,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -106,8 +99,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -125,9 +117,7 @@
                 <div class="text">
                     <h2 class="title h4"><a href="product.html">Nude</a></h2>
                     <sup>$ 2999,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -139,8 +129,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -159,9 +148,7 @@
                 <div class="text">
                     <h2 class="title h4"><a href="product.html">Aurora</a></h2>
                     <sup>$ 299,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -173,8 +160,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -194,9 +180,7 @@
                     <h2 class="title h4"><a href="product.html">Dining set</a></h2>
                     <sub>$ 1999,-</sub>
                     <sup>$ 1499,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -208,8 +192,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -227,9 +210,7 @@
                 <div class="text">
                     <h2 class="title h4"><a href="product.html">Seat chair</a></h2>
                     <sup>$ 896,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -242,8 +223,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -263,9 +243,7 @@
                     <h2 class="title h4"><a href="product.html">Green corner</a></h2>
                     <sub>$ 1499,-</sub>
                     <sup>$ 1099,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -277,8 +255,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -297,9 +274,7 @@
                     <h2 class="title h4"><a href="product.html">Laura</a></h2>
                     <sub>$ 3999,-</sub>
                     <sup>$ 3499,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -311,8 +286,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -330,9 +304,7 @@
                 <div class="text">
                     <h2 class="title h4"><a href="product.html">Nude</a></h2>
                     <sup>$ 2999,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
@@ -344,8 +316,7 @@
         <article>
             <div class="info">
                 <span class="add-favorite">
-                    <a href="javascript:void(0);" data-title="Add to favorites"
-                        data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                 </span>
                 <span>
                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
@@ -364,16 +335,13 @@
                 <div class="text">
                     <h2 class="title h4"><a href="product.html">Aurora</a></h2>
                     <sup>$ 299,-</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                        facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur
-                        nulla</span>
+                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                 </div>
             </div>
         </article>
     </div>
 
-</div>
-<!--/row-->
+</div><!--/row-->
 <!--Pagination-->
 <div class="pagination-wrapper">
     <ul class="pagination">
