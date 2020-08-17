@@ -19,4 +19,16 @@ export class ImagemService {
     return this.http.post(`${URL_API}/imagens/upload`, formData)
     
   }
+
+  public listarCapas(){
+
+    return this.http.get(`${URL_API}/imagens`);
+
+  }
+
+  public listarCapasPaginadas(page,size){
+
+    return this.http.get(`${URL_API}/imagens/paginada?page=${page}&size=${size}&sort=id,desc`)
+
+  }
 }

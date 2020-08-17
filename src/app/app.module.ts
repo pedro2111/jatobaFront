@@ -19,7 +19,9 @@ import { CapaProdutoComponent } from './components/administracao/produto/capa-pr
 import { ImagemProdutoComponent } from './components/administracao/produto/imagem-produto/imagem-produto.component';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { EditarProdutoComponent } from './components/administracao/produto/editar-produto/editar-produto.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -73,7 +75,8 @@ const customNotifierOptions: NotifierOptions = {
     HomeProdutoComponent,
     NovoProdutoComponent,
     CapaProdutoComponent,
-    ImagemProdutoComponent
+    ImagemProdutoComponent,
+    EditarProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,8 @@ const customNotifierOptions: NotifierOptions = {
     NotifierModule.withConfig(customNotifierOptions),
     LoadingBarModule,
     LoadingBarHttpClientModule,
+    NgxPaginationModule,
+    IvyCarouselModule
     
     
   ],

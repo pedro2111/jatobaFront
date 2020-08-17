@@ -6,6 +6,8 @@ import { HomeProdutoComponent } from './components/administracao/produto/home-pr
 import { NovoProdutoComponent } from './components/administracao/produto/novo-produto/novo-produto.component';
 import { CapaProdutoComponent } from './components/administracao/produto/capa-produto/capa-produto.component';
 import { ImagemProdutoComponent } from './components/administracao/produto/imagem-produto/imagem-produto.component';
+import { ProdutoResolverGuard } from './components/administracao/produto/guards/produto-resolver.guard';
+import { EditarProdutoComponent } from './components/administracao/produto/editar-produto/editar-produto.component';
 
 
 const routes: Routes = [
@@ -13,11 +15,12 @@ const routes: Routes = [
   {
     path: 'administracao', component: DashboardComponent,
     children: [
-      {path: '', component: HomeProdutoComponent,data: {animation: 'isRight'}},
-      {path: 'produto/home', component: HomeProdutoComponent,data: {animation: 'isRight'}},
-      {path: 'produto/novo', component: NovoProdutoComponent,data: {animation: 'isRight'}},
-      {path: 'produto/novo/:id/capa', component: CapaProdutoComponent,data: {animation: 'isRight'}},
-      {path: 'produto/novo/:id/imagem', component: ImagemProdutoComponent,data: {animation: 'isRight'}}
+      {path: '', component: HomeProdutoComponent},
+      {path: 'produto/home', component: HomeProdutoComponent},
+      {path: 'produto/novo', component: NovoProdutoComponent},
+      {path: 'produto/novo/:id/capa', component: CapaProdutoComponent},
+      {path: 'produto/novo/:id/imagem', component: ImagemProdutoComponent},
+      {path: 'produto/:id/editar', component: EditarProdutoComponent},
 
     ]
   }
@@ -25,6 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ProdutoResolverGuard]
 })
 export class AppRoutingModule { }
