@@ -22,7 +22,6 @@
     "@ngx-loading-bar/core": "^5.1.0",
     "@ngx-loading-bar/http-client": "^5.1.0",
     "angular-notifier": "^6.0.1",
-    "angular-responsive-carousel": "^1.2.9",
     "animate.css": "^4.1.0",
     "bootstrap": "^4.5.0",
     "jwt-decode": "^2.2.0",

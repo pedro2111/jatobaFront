@@ -9,12 +9,14 @@ export class EditarProdutoComponent implements OnInit {
 
   constructor() { }
 
+  formulario;
+  categorias;
+  
   ngOnInit(): void {
   }
 
-  public clickImage(event){
+  cadastrar(){}
 
-    console.log(event)
-  }
+  
 
 }
