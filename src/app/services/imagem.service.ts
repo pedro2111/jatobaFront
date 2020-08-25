@@ -31,4 +31,9 @@ export class ImagemService {
     return this.http.get(`${URL_API}/imagens/paginada?page=${page}&size=${size}&sort=id,desc`)
 
   }
+
+  public listarImagensByProduto(id){
+
+    return this.http.get(`${URL_API}/imagens/${id}`);
+  }
 }

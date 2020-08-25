@@ -10,6 +10,7 @@ export class Produto {
     nomeCategoria:String;
     status:String;
     dtCriacao:Date;
+    peso: Number;
 
 
 }

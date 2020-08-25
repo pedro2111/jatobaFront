@@ -37,4 +37,9 @@ export class ProdutoService {
 
     return this.http.get<Produto>(`${URL_API}/produtos`);
   }
+
+  public listarProdutosById(id){
+
+    return this.http.get<Produto>(`${URL_API}/produtos/${id}`);
+  }
 }
