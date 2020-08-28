@@ -4,7 +4,8 @@ import { Produto } from 'src/app/shared/produto';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { ImagemService } from 'src/app/services/imagem.service';
 import { CategoriaService } from 'src/app/services/categoria.service';
-import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { ActivatedRouteSnapshot, ActivatedRoute, Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-editar-produto',
@@ -12,12 +13,6 @@ import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
   styleUrls: ['./editar-produto.component.css']
 })
 export class EditarProdutoComponent implements OnInit {
-
-  constructor(
-    private produtoService:ProdutoService,
-    private imagemService:ImagemService,
-    private categoriaService: CategoriaService,
-    private route:ActivatedRoute) { }
 
   formulario: FormGroup = new FormGroup({
     'nome': new FormControl(null, [Validators.required]),
@@ -32,9 +27,20 @@ export class EditarProdutoComponent implements OnInit {
   categorias;
   produtoId;
   produto: Produto;
+
   imagens;
 
-  ngOnInit(): void {
+  constructor(
+    private produtoService:ProdutoService,
+    private imagemService:ImagemService,
+    private categoriaService: CategoriaService,
+    private route:ActivatedRoute,
+    private router:Router,
+    private notifierService: NotifierService) { }
+
+
+
+  ngOnInit(){
     this.listarCategorias();
     this.route.paramMap.subscribe((param) => {
       this.produtoId = param.get('id')
@@ -44,7 +50,17 @@ export class EditarProdutoComponent implements OnInit {
 
   }
 
-  public atualizar() { }
+  public atualizar(){
+    let produtoAtualizado:Produto = this.formulario.getRawValue();
+
+    this.produtoService.atualizarProduto(this.produtoId, produtoAtualizado).subscribe(
+      (res) => {
+        this.notifierService.notify('success', 'Produto atualizado com sucesso')
+        setTimeout(() => { this.router.navigate(['/administracao/produto/home']) }, 2000)
+      },(err) => {
+        console.log(err)
+      })
+   }
 
   public listarCategorias(){
     this.categoriaService.listar().subscribe(
