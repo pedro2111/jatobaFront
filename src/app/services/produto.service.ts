@@ -55,4 +55,10 @@ export class ProdutoService {
     return this.http.put(`${URL_API}/produtos/${id}`,produto,httpOptions);
 
   }
+
+  public deletarProdutoComImagens(id){
+
+    return this.http.delete(`${URL_API}/produtos/${id}`);
+
+  }
 }

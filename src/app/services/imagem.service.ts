@@ -20,6 +20,12 @@ export class ImagemService {
     
   }
 
+  public deletar(id){
+
+    return this.http.delete(`${URL_API}/imagens/${id}`);
+
+  }
+
   public listarCapas(){
 
     return this.http.get(`${URL_API}/imagens`);

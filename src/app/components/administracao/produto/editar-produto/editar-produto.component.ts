@@ -61,6 +61,19 @@ export class EditarProdutoComponent implements OnInit {
         console.log(err)
       })
    }
+   deletarImagem(id){
+
+    return this.imagemService.deletar(id).subscribe(
+      (res) => {
+        console.log(res)
+        this.notifierService.notify('success', 'Imagem deletada com sucesso!')
+        this.listarImagensByProduto(this.produtoId)
+        
+      }, (err) => {
+        console.log(err)
+      })
+
+   }
 
   public listarCategorias(){
     this.categoriaService.listar().subscribe(

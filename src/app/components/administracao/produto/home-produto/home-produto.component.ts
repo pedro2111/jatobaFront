@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { ActivatedRoute } from '@angular/router';
 import{map} from 'rxjs/operators'
 import { ImagemService } from 'src/app/services/imagem.service';
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class HomeProdutoComponent implements OnInit {
   constructor(
     private produtoService: ProdutoService,
     private imagemService: ImagemService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private notifierService: NotifierService
   ) { }
 
   produtosCapas;
@@ -78,6 +80,17 @@ export class HomeProdutoComponent implements OnInit {
     this.page = page - 1;
     this.listarProdutosCapasPaginadas(this.page, this.size);
     
+  }
+  public deletarProdutoComImagens(id){
+
+    this.produtoService.deletarProdutoComImagens(id).subscribe(
+      (res) => {
+        this.notifierService.notify('success', 'Produto Deletado com sucesso!');
+        this.listarProdutosCapasPaginadas(this.page,this.size);
+      },(err) => {
+        console.log(err)
+      })
+
   }
 
 }
