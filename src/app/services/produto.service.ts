@@ -61,4 +61,15 @@ export class ProdutoService {
     return this.http.delete(`${URL_API}/produtos/${id}`);
 
   }
+
+  public TrocarStatus(id){
+    let headers: HttpHeaders = new HttpHeaders()
+    headers.append('Content-type', 'application/json');
+
+    const httpOptions = {
+      headers: headers
+    }
+
+    return this.http.put(`${URL_API}/produtos/trocarStatus/${id}`, httpOptions)
+  }
 }

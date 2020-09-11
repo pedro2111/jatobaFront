@@ -1,5 +1,5 @@
-.circulo{
-    background:#fa0c01;
+.circulo-vermelho{
+background:#fa0c01;
 color:#fff;
 width:10px;
 height:10px;
@@ -9,5 +9,18 @@ font-size:30px;
 border-radius:50%;
 -moz-border-radius:50%;
 -webkit-border-radius:50%;
-display: inline;
+display: block;
+}
+.circulo-verde{
+background:green;
+color:#fff;
+width:10px;
+height:10px;
+vertical-align:middle;
+text-align:center;
+font-size:30px;
+border-radius:50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
+display: block;
 }

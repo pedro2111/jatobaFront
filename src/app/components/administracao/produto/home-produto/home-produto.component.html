@@ -38,15 +38,18 @@
                 <span class="add-favorite">
                     <a data-title="Deletar!" (click)="deletarProdutoComImagens(prod.produto.id)"><i class="icon icon-trash"></i></a>
                 </span>
-                <span class="add-favorite bg-green">
-                    <a data-title="Ativar!" ><i class="icon icon-power-switch"></i></a>
+                <span class="add-favorite" *ngIf="prod.produto.status != 'ATIVO' ">
+                    <a data-title="Ativar!" (click)="trocarStatus(prod.produto.id)"><i class="icon icon-power-switch"></i></a>
+                </span>
+                <span class="add-favorite" *ngIf="prod.produto.status == 'ATIVO' ">
+                    <a data-title="Desativar!" (click)="trocarStatus(prod.produto.id)"><i class="icon icon-power-switch"></i></a>
                 </span>
             </div>
             <div class="btn btn-add">
                 <i class="icon icon-cart"></i>
             </div>
             <div class="text">
-                <h2 class="title h4"><a>{{prod.produto.nome}}</a></h2> <div class="circulo"></div>
+                <h2 class="title h4"><a>{{prod.produto.nome}}</a></h2> <div [ngClass]="{'circulo-verde': prod.produto.status === 'ATIVO','circulo-vermelho': prod.produto.status === 'INATIVO'}"></div>
                 <sub>R$ {{prod.produto.preco}}</sub>
                 <sub>R$ {{prod.produto.preco}}</sub>
 
