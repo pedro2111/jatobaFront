@@ -8,6 +8,7 @@ import { CapaProdutoComponent } from './components/administracao/produto/capa-pr
 import { ImagemProdutoComponent } from './components/administracao/produto/imagem-produto/imagem-produto.component';
 import { ProdutoResolverGuard } from './components/administracao/produto/guards/produto-resolver.guard';
 import { EditarProdutoComponent } from './components/administracao/produto/editar-produto/editar-produto.component';
+import { HomeOrcamentoComponent } from './components/administracao/orcamento/home-orcamento/home-orcamento.component';
 
 
 const routes: Routes = [
@@ -15,12 +16,13 @@ const routes: Routes = [
   {
     path: 'administracao', component: DashboardComponent,
     children: [
-      {path: '', component: HomeProdutoComponent},
+      {path: '',component: HomeProdutoComponent},
       {path: 'produto/home', component: HomeProdutoComponent},
       {path: 'produto/novo', component: NovoProdutoComponent},
       {path: 'produto/novo/:id/capa', component: CapaProdutoComponent},
       {path: 'produto/novo/:id/imagem', component: ImagemProdutoComponent},
       {path: 'produto/:id/editar', component: EditarProdutoComponent},
+      {path: 'orcamento/home', component: HomeOrcamentoComponent},
 
     ]
   }
