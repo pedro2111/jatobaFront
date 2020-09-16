@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { OrcamentoService } from 'src/app/services/orcamento.service';
+import { Orcamento } from 'src/app/shared/orcamento';
+import { ImagemService } from 'src/app/services/imagem.service';
+import { Imagem } from 'src/app/shared/imagem';
 
 @Component({
   selector: 'app-home-orcamento',
@@ -7,9 +11,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeOrcamentoComponent implements OnInit {
 
-  constructor() { }
+  orcamentos: Orcamento;
+  imagem;
+
+  constructor(
+    private orcamentoService: OrcamentoService,
+    private imagemService: ImagemService
+  ) { }
 
   ngOnInit(): void {
+    this.listar();
+  }
+
+  public listar() {
+
+    this.orcamentoService.listar().subscribe(
+      (res:Orcamento) => {
+        this.orcamentos = res,
+        this.listarImagensProduto(res)
+      }, (err) => {
+        console.log(err)
+      })
+  }
+
+  public listarImagensProduto(orcamento: Orcamento) {
+
+   
+    if (orcamento[0].produto[0]) {
+
+      this.imagemService.listarImagensByProduto(orcamento[0].produto[0].id).subscribe(
+        (res) => {
+          this.imagem = res, console.log(res)
+        }, (err) => {
+          console.log(err)
+        }
+      )
+
+    } else {
+      return null;
+    }
+
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" *ngFor="let orc of orcamentos">
         <article>
             <div class="info">
                 <span class="add-favorite">
@@ -19,11 +19,11 @@
                     </a>
                 </div>
                 <div class="text">
-                    <h2 class="title h4"><a href="product.html">Assunto do orcamento</a></h2>
-                    <sup>10/09/2020</sup>
-                    <sup>Pedro Chaves</sup>
-                    <sup>9 9157 9675</sup>
-                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                    <h2 class="title h4"><a href="product.html">{{orc.assunto}}</a></h2>
+                    <sup>{{orc.dtCriacao | date: 'dd/MM/yyyy'}}</sup>
+                    <sup>{{orc.nome}}</sup>
+                    <sup>{{orc.telefone}}</sup>
+                    <span class="description clearfix">{{orc.mensagem}}</span>
                 </div>
             </div>
         </article>
