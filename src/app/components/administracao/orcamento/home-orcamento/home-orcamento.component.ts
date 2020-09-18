@@ -28,7 +28,7 @@ export class HomeOrcamentoComponent implements OnInit {
     this.orcamentoService.listar().subscribe(
       (res:Orcamento) => {
         this.orcamentos = res,
-        this.listarImagensProduto(res)
+        console.log(res)
       }, (err) => {
         console.log(err)
       })
