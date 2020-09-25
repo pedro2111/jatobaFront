@@ -11,8 +11,9 @@ import { Imagem } from 'src/app/shared/imagem';
 })
 export class HomeOrcamentoComponent implements OnInit {
 
-  orcamentos: Orcamento;
+  orcamentos?;
   imagem;
+  p;
 
   constructor(
     private orcamentoService: OrcamentoService,

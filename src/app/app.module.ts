@@ -22,6 +22,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { EditarProdutoComponent } from './components/administracao/produto/editar-produto/editar-produto.component';
 import { HomeOrcamentoComponent } from './components/administracao/orcamento/home-orcamento/home-orcamento.component';
+import { ContatoComponent } from './components/contato/contato.component';
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -77,7 +78,8 @@ const customNotifierOptions: NotifierOptions = {
     CapaProdutoComponent,
     ImagemProdutoComponent,
     EditarProdutoComponent,
-    HomeOrcamentoComponent
+    HomeOrcamentoComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,

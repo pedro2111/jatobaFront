@@ -9,10 +9,12 @@ import { ImagemProdutoComponent } from './components/administracao/produto/image
 import { ProdutoResolverGuard } from './components/administracao/produto/guards/produto-resolver.guard';
 import { EditarProdutoComponent } from './components/administracao/produto/editar-produto/editar-produto.component';
 import { HomeOrcamentoComponent } from './components/administracao/orcamento/home-orcamento/home-orcamento.component';
+import { ContatoComponent } from './components/contato/contato.component';
 
 
 const routes: Routes = [
   { path: '', component: MainComponent },
+  { path: 'contato', component: ContatoComponent },
   {
     path: 'administracao', component: DashboardComponent,
     children: [

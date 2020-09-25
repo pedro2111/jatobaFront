@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12" *ngFor="let orc of orcamentos">
+    <div class="col-md-12" *ngFor="let orc of orcamentos | paginate: {itemsPerPage: 5, currentPage: p}">
         <article>
             <div class="info">
                 <span class="add-favorite">
@@ -28,4 +28,7 @@
             </div>
         </article>
     </div>
+</div>
+<div class="pagination-wrapper">
+    <pagination-controls class="pagination" (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Próximo"> </pagination-controls>
 </div>
