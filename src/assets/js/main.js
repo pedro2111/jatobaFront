@@ -358,13 +358,13 @@
     // Add to favorites list / product list
     // ----------------------------------------------------------------
 
-    $('.add-favorite').on('click', function () {
-        $(this).toggleClass("added");
-    });
+   // $('.add-favorite').on('click', function () {
+     //   $(this).toggleClass("added");
+   // });
 
-    $('.info-box-addto').on('click', function () {
-        $(this).toggleClass('added');
-    });
+  ////  $('.info-box-addto').on('click', function () {
+      //  $(this).toggleClass('added');
+    //});
 
     // Filters toggle functions
     // ----------------------------------------------------------------

@@ -23,7 +23,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { EditarProdutoComponent } from './components/administracao/produto/editar-produto/editar-produto.component';
 import { HomeOrcamentoComponent } from './components/administracao/orcamento/home-orcamento/home-orcamento.component';
 import { ContatoComponent } from './components/contato/contato.component';
-
+import { HomeProdutoShopComponent } from './components/produtos/home-produto-shop/home-produto-shop.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -79,7 +81,8 @@ const customNotifierOptions: NotifierOptions = {
     ImagemProdutoComponent,
     EditarProdutoComponent,
     HomeOrcamentoComponent,
-    ContatoComponent
+    ContatoComponent,
+    HomeProdutoShopComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,9 @@ const customNotifierOptions: NotifierOptions = {
     NotifierModule.withConfig(customNotifierOptions),
     LoadingBarModule,
     LoadingBarHttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ModalModule.forRoot(),
+    CarouselModule.forRoot()
     
     
   ],

@@ -1,0 +1,13 @@
+.checkout-custom{
+    background-color: lightgray !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.banner-custom{
+    color: darkgray !important;
+    font-weight: bold !important;
+}
+.price-custom{
+    color:#3a3d45 !important;
+    font-weight: bold !important;
+}

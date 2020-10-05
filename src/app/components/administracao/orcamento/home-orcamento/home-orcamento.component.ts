@@ -42,6 +42,7 @@ export class HomeOrcamentoComponent implements OnInit {
 
       this.imagemService.listarImagensByProduto(orcamento[0].produto[0].id).subscribe(
         (res) => {
+          if(res['imagens'])
           this.imagem = res, console.log(res)
         }, (err) => {
           console.log(err)

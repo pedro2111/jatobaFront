@@ -72,4 +72,9 @@ export class ProdutoService {
 
     return this.http.put(`${URL_API}/produtos/trocarStatus/${id}`, httpOptions)
   }
+
+  public like(id){
+
+    return this.http.put(`${URL_API}/produtos/like/${id}`, '')
+  }
 }

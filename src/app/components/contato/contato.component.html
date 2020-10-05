@@ -1,13 +1,13 @@
- <!-- ========================  Contact ======================== -->
+<!-- ========================  Contact ======================== -->
 
- <section class="contact">
+<section class="contact animate__animated animate__bounceInRight">
 
     <!-- === Goolge map === -->
 
     <div id="map">
-        
+
     </div>
-    
+
 
     <div class="container">
 
@@ -24,7 +24,8 @@
                                     <span class="icon icon-map-marker"></span>
                                     <figcaption>
                                         <strong>Onde?</strong>
-                                        <span>Smpw Quadra 6 conjunto 1 lote 6a - Núcleo Bandeirante, <br />Brasília - DF, 71740-601</span>
+                                        <span>Smpw Quadra 6 conjunto 1 lote 6a - Núcleo Bandeirante, <br />Brasília -
+                                            DF, 71740-601</span>
                                     </figcaption>
                                 </figure>
                             </div>
@@ -57,43 +58,111 @@
                     <div class="banner">
                         <div class="row">
                             <div class="col-md-offset-1 col-md-10 text-center">
-                                <h2 class="title">Send an email</h2>
+                                <h2 class="title">Fale conosco!</h2>
                                 <p>
-                                    Thanks for your interest in Mobel Theme. We believe in creativity as one of the major forces of progress.
-                                    Please use this form if you have any questions about our products and we'll get back with you very soon.
+                                    Nesta área, voçê pode solicitar um orçamento, tirar dúvidas sobre os produtos,
+                                    solicitar um produto feito sob medida, etc...
+                                    Entraremos em contato com você em até 24h!
                                 </p>
 
+
+                <div class="cart-wrapper">
+                    <div class="checkout checkout-custom">
+                        <div class="clearfix">
+                            <div class="row">
+
+                                <div class="cart-block cart-block-header clearfix banner-custom">
+                                    <div>
+                                        <span>Product</span>
+                                    </div>
+                                    <div>
+                                        <span>&nbsp;</span>
+                                    </div>
+                                    <div>
+                                        <span>&nbsp;</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span>Price</span>
+                                    </div>
+                                </div>
+            
+                                <!--cart items-->
+            
+                                <div class="clearfix">
+                                    <div class="cart-block cart-block-item clearfix">
+                                        <div class="image">
+                                            <a href="product.html"><img src="assets/images/product-1.png" alt="" /></a>
+                                        </div>
+                                        <div class="title">
+                                            <div class="h4"><a href="product.html">Green corner</a></div>
+                                            <div>Green corner</div>
+                                        </div>
+                                        <div>
+                                            <span>&nbsp;</span>
+                                        </div>
+                                  
+                                        <div class="price price-custom">
+                                            <span class="final h3">$ 1.998</span>
+                                            <!-- <span class="discount">$ 2.666</span> -->
+                                        </div>
+                                    </div>    
+                                </div>             
+
+                                <!--cart item-->
+                            </div>
+                            <!--cart navigation -->
+                        </div>
+                    </div>
+                    <!--/checkout-->
+                </div>
+                <!--/cart-wrapper-->
+
                                 <div class="contact-form-wrapper">
-                                   
+
                                     <div class="contact-form clearfix">
-                                        <form >
+                                        <form novalidate [formGroup]="formulario" (submit)="cadastrar()">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <input id="Name" name="Name" type="text" value="" class="form-control" placeholder="Your name" >
+                                                        <input id="Name" formControlName="nome" name="nome" type="text"
+                                                            value="" class="form-control" placeholder="Nome">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <input id="Email" name="Email" type="email" value="" class="form-control" placeholder="Your email" >
+                                                        <input id="Email" formControlName="email" name="email"
+                                                            type="email" value="" class="form-control"
+                                                            placeholder="email">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input formControlName="telefone" name="telefone" type="text"
+                                                            value="" class="form-control" placeholder="celular">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input id="Subject" name="Subject" type="text" value="" class="form-control" placeholder="Subject" >
+                                                        <input id="Subject" formControlName="assunto" name="assunto"
+                                                            type="text" value="" class="form-control"
+                                                            placeholder="Assunto">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <textarea id="Comment" name="Comment" class="form-control" placeholder="Your message" rows="10"></textarea>
+                                                        <textarea id="Comment" formControlName="mensagem"
+                                                            name="mensagem" class="form-control"
+                                                            placeholder="Descreva aqui seu pedido sob medida, solicitação de orçamento..."
+                                                            rows="10"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12 text-center">
-                                                    <input type="submit" class="btn btn-clean" value="Send message" />
+                                                    <input type="submit" class="btn btn-clean" value="Enviar!" />
                                                 </div>
                                             </div>
                                         </form>
@@ -104,9 +173,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!--col-sm-8-->
+
+        </div>
+        <!--/row-->
 
 
-            </div><!--col-sm-8-->
-        </div> <!--/row-->
-    </div><!--/container-->
+    </div>
+    <!--/container-->
 </section>

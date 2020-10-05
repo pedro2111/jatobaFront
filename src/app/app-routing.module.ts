@@ -10,11 +10,15 @@ import { ProdutoResolverGuard } from './components/administracao/produto/guards/
 import { EditarProdutoComponent } from './components/administracao/produto/editar-produto/editar-produto.component';
 import { HomeOrcamentoComponent } from './components/administracao/orcamento/home-orcamento/home-orcamento.component';
 import { ContatoComponent } from './components/contato/contato.component';
+import { HomeProdutoShopComponent } from './components/produtos/home-produto-shop/home-produto-shop.component';
+
+
 
 
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'contato', component: ContatoComponent },
+  { path: 'produtos', component: HomeProdutoShopComponent },
   {
     path: 'administracao', component: DashboardComponent,
     children: [

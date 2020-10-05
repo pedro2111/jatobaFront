@@ -3,4 +3,4 @@
 import { environment } from 'src/environments/environment';
 
 export const URL_API = environment.URL_API;
-export const URL_SITE = 'http://localhost:4200'
+export const URL_SITE = environment.URL_SITE
