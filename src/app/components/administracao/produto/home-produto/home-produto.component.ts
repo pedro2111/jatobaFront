@@ -38,7 +38,7 @@ export class HomeProdutoComponent implements OnInit {
   public listarProdutosImagens() {
     this.produtoService.listarProdutosImagens().subscribe(
       (res) => {
-        console.log(res)
+        
         this.produtosCapas = res
         //console.log(res[0][0]['nome'])
         //console.log(res[0][1]['url'])
@@ -63,8 +63,8 @@ export class HomeProdutoComponent implements OnInit {
     this.imagemService.listarCapasPaginadas(page, size).subscribe(
       (res) => {
         this.totalElementos = res['totalElements'],
-          this.produtosCapas = res['content'],
-          console.log(res)
+          this.produtosCapas = res['content']
+          
 
       }, (err) => {
         console.log(err)

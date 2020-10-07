@@ -9,4 +9,5 @@ export class Orcamento{
     mensagem:String;
     dtCriacao:Date;
     produto:Produto[];
+    produto_ids;
 }

@@ -42,4 +42,9 @@ export class ImagemService {
 
     return this.http.get(`${URL_API}/imagens/${id}`);
   }
+
+  public listarCapaByProduto(id){
+
+    return this.http.get(`${URL_API}/imagens/produtoCapa/${id}`);
+  }
 }

@@ -245,13 +245,13 @@
                         <div *ngIf="prod.produto.status == 'ATIVO' ">
                             <article>
                                 <div class="info">
-                                    <span class="add-favorite" (click)="favoritar($event)">
-                                        <a href="javascript:void(0);" data-title="Curtir!" data-title-added="Obrigado!" (click)="favoritarSpan($event)">
-                                            <i class="icon icon-heart"></i>
+                                    <span class="add-favorite" (click)="favoritar($event, prod.produto.id)">
+                                        <a href="javascript:void(0);" data-title="Curtir!" data-title-added="Obrigado!" (click)="favoritarSpan($event,prod.produto.id)">
+                                            <i (click)="favoritarHeart($event,prod.produto.id)" class="icon icon-heart"></i>
                                         </a>
                                     </span>
                                 </div>
-                                <div class="btn btn-add">
+                                <div class="btn btn-add" [routerLink]="['/contato',prod.produto.id]">
                                     <i class="icon icon-cart"></i>
                                 </div>
                                 <div class="text">

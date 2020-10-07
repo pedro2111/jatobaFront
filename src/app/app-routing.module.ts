@@ -18,6 +18,7 @@ import { HomeProdutoShopComponent } from './components/produtos/home-produto-sho
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'contato', component: ContatoComponent },
+  { path: 'contato/:id', component: ContatoComponent },
   { path: 'produtos', component: HomeProdutoShopComponent },
   {
     path: 'administracao', component: DashboardComponent,

@@ -28,31 +28,11 @@ export class HomeOrcamentoComponent implements OnInit {
 
     this.orcamentoService.listar().subscribe(
       (res:Orcamento) => {
-        this.orcamentos = res,
-        console.log(res)
+        this.orcamentos = res
+        
       }, (err) => {
         console.log(err)
       })
-  }
-
-  public listarImagensProduto(orcamento: Orcamento) {
-
-   
-    if (orcamento[0].produto[0]) {
-
-      this.imagemService.listarImagensByProduto(orcamento[0].produto[0].id).subscribe(
-        (res) => {
-          if(res['imagens'])
-          this.imagem = res, console.log(res)
-        }, (err) => {
-          console.log(err)
-        }
-      )
-
-    } else {
-      return null;
-    }
-
   }
 
 }

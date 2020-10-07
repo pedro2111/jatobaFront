@@ -12,15 +12,15 @@ import { ProdutoService } from 'src/app/services/produto.service';
 })
 export class HomeProdutoShopComponent implements OnInit {
 
-   constructor(
-    private modalService:BsModalService,
-    private imagemService:ImagemService,
-    private renderer:Renderer2,
-    private produtoService:ProdutoService
+  constructor(
+    private modalService: BsModalService,
+    private imagemService: ImagemService,
+    private renderer: Renderer2,
+    private produtoService: ProdutoService
   ) { }
 
   baseUrl = URL_SITE;
-  produtoModalRef:BsModalRef;
+  produtoModalRef: BsModalRef;
   totalElementos;
   produtosCapas;
   page = 0;
@@ -30,15 +30,15 @@ export class HomeProdutoShopComponent implements OnInit {
   //@ViewChild("spanLike") spanLike: ElementRef;
 
   ngOnInit(): void {
-    this.listarProdutosCapasPaginadas(this.page,this.size);
+    this.listarProdutosCapasPaginadas(this.page, this.size);
   }
 
-  public openModalProduto(template: TemplateRef<any>, produtoId){
+  public openModalProduto(template: TemplateRef<any>, produtoId) {
 
     this.imagemService.listarImagensByProduto(produtoId).subscribe(
       (res) => {
         this.imagens = res
-      },(err) => {
+      }, (err) => {
         console.log(err)
       })
 
@@ -50,8 +50,8 @@ export class HomeProdutoShopComponent implements OnInit {
     this.imagemService.listarCapasPaginadas(page, size).subscribe(
       (res) => {
         this.totalElementos = res['totalElements'],
-          this.produtosCapas = res['content'],
-          console.log(res)
+          this.produtosCapas = res['content']
+          
 
       }, (err) => {
         console.log(err)
@@ -61,7 +61,7 @@ export class HomeProdutoShopComponent implements OnInit {
 
   public pageChange(event) {
 
-    console.log(event)
+    //console.log(event)
 
   }
   public getPage(page) {
@@ -69,16 +69,27 @@ export class HomeProdutoShopComponent implements OnInit {
     this.listarProdutosCapasPaginadas(this.page, this.size);
 
   }
-  public favoritar(event){
-    
-    this.renderer.addClass(event.target,'added')
+  public favoritar(event,id) {
+
+    this.renderer.addClass(event.target, 'added')
+    this.like(id)
   }
-  public favoritarSpan(event){
-    this.renderer.addClass(event.target.parentElement,'added')
+  public favoritarSpan(event,id) {
+    this.renderer.addClass(event.target.parentElement, 'added')
+    this.like(id)
   }
-  public favoritarHeart(event){
-    
-    this.favoritar(event.target)
+  public favoritarHeart(event,id) {
+
+    this.renderer.addClass(event.target.parentElement.parentElement, 'added')
+    this.like(id)
+  }
+
+  public like(id) {
+    this.produtoService.like(id).subscribe(
+      (res) => { },
+      (err) => {
+        console.log(err)
+      })
   }
 
 }
