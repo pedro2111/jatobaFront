@@ -3,6 +3,7 @@ import { URL_SITE } from 'src/app/shared/app.api';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ImagemService } from 'src/app/services/imagem.service';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -27,10 +28,16 @@ export class HomeProdutoShopComponent implements OnInit {
   size = 10;
   p;
   imagens?;
+  toogleActive = false;
+  categoria = [1,2,3,4]
+
+  formulario = new FormGroup({
+    'categoria': new FormControl([null])
+  });
   //@ViewChild("spanLike") spanLike: ElementRef;
 
   ngOnInit(): void {
-    this.listarProdutosCapasPaginadas(this.page, this.size);
+    this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria);
   }
 
   public openModalProduto(template: TemplateRef<any>, produtoId) {
@@ -43,11 +50,12 @@ export class HomeProdutoShopComponent implements OnInit {
       })
 
     this.produtoModalRef = this.modalService.show(template)
+    
   }
 
-  public listarProdutosCapasPaginadas(page, size) {
+  public listarProdutosCapasPaginadas(page, size, categoria:number[]) {
 
-    this.imagemService.listarCapasPaginadas(page, size).subscribe(
+    this.imagemService.listarCapasPaginadas(page, size, categoria).subscribe(
       (res) => {
         this.totalElementos = res['totalElements'],
           this.produtosCapas = res['content']
@@ -66,7 +74,7 @@ export class HomeProdutoShopComponent implements OnInit {
   }
   public getPage(page) {
     this.page = page - 1;
-    this.listarProdutosCapasPaginadas(this.page, this.size);
+    this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria);
 
   }
   public favoritar(event,id) {
@@ -90,6 +98,20 @@ export class HomeProdutoShopComponent implements OnInit {
       (err) => {
         console.log(err)
       })
+  }
+  public activeFilter(){
+    this.toogleActive = !this.toogleActive
+  }
+
+  public filtrar(){
+    
+    if( this.formulario.get("categoria").value == 0){
+      this.categoria = [1,2,3,4]
+    }else{
+      this.categoria = [this.formulario.get("categoria").value];
+    }
+
+    this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria);
   }
 
 }

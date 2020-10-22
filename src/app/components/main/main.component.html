@@ -4,7 +4,7 @@
 
         <!-- === slide item === -->
 
-        <div class="item" style="background-image:url(assets/images/carousel1.jpg)">
+        <div class="item" style="background-image:url(assets/images/carousel4.jpg)">
             <div class="box">
                 <div class="container">
                     <h2 class="title animated h1" data-animation="fadeInDown">Móveis Rústicos Jatobá</h2>
@@ -13,7 +13,7 @@
                         Móveis à pronta-entrega ou sob encomenda!
                     </div>
                     <div class="animated" data-animation="fadeInUp">
-                        <a class="btn btn-main"><i class="icon icon-cart"></i> Conheça nossos produtos!</a>
+                        <a class="btn btn-main" [routerLink]="['/produtos']" ><i class="icon icon-cart"></i> Conheça nossos produtos!</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <!--<div class="animated" data-animation="fadeInUp">Furniture category icon fonts!</div>-->
                     <div class="animated" data-animation="fadeInUp">
-                        <a href="category.html" class="btn btn-clean">Conheça nossos produtos!</a>
+                        <a class="btn btn-clean" [routerLink]="['/produtos']" >Conheça nossos produtos!</a>
                     </div>
                 </div>
             </div>
@@ -48,8 +48,7 @@
                         Sala de jantar, sala de estar, corredores, áreas gourmet e áreas externas.
                     </div>
                     <div class="animated" data-animation="fadeInUp">
-                        <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"
-                            class="btn btn-clean">Conheça nossos produtos!</a>
+                        <a class="btn btn-clean" [routerLink]="['/produtos']">Conheça nossos produtos!</a>
                     </div>
                 </div>
             </div>
@@ -137,10 +136,7 @@
         <header>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
-                    <h2 class="title">Popular products</h2>
-                    <div class="text">
-                        <p>Check out our latest collections</p>
-                    </div>
+                    <h2 class="title">Os mais Vendidos</h2>
                 </div>
             </div>
         </header>
@@ -149,314 +145,80 @@
 
             <!-- === product-item === -->
 
-            <div class="col-md-4 col-xs-6">
-
-                <article>
-                    <div class="info">
-                        <span class="add-favorite added">
-                            <a href="javascript:void(0);" data-title="Add to favorites"
-                                data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i
-                                    class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="assets/images/product-1.png" alt="" width="360" />
-                            </a>
+            <div class="col-md-4 col-xs-6"
+                *ngFor="let prod of produtosUltimosProdutos | paginate: {itemsPerPage: 10, currentPage: p, totalItems:totalElementos}">
+                <div *ngIf="prod.produto.status == 'ATIVO' ">
+                    <article>
+                        <div class="info">
+                            <span class="add-favorite" (click)="favoritar($event, prod.produto.id)">
+                                <a href="javascript:void(0);" data-title="Curtir!" data-title-added="Obrigado!"
+                                    (click)="favoritarSpan($event,prod.produto.id)">
+                                    <i (click)="favoritarHeart($event,prod.produto.id)" class="icon icon-heart"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="btn btn-add" [routerLink]="['/contato',prod.produto.id]">
+                            <i class="icon icon-cart"></i>
                         </div>
                         <div class="text">
-                            <h2 class="title h4"><a href="product.html">Green corner</a></h2>
-                            <sub>$ 1499,-</sub>
-                            <sup>$ 1099,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                                facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                            <h2 class="title h4"><a>{{prod.produto.nome}}</a></h2>
+                            <sub>R$ {{prod.produto.preco}}</sub>
+                            <sub>R$ {{prod.produto.preco}}</sub>
+
+                            <!--- <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span> -->
                         </div>
-                    </div>
-                </article>
+                        <div class="figure-grid" style="cursor: pointer !important; padding: 10px;"
+                            (click)="openModalProduto(templateModalProd, prod.produto.id)">
+                            <div class="image">
+                                <a class="mfp-open">
+                                    <img src="{{prod.url}}" alt="" width="250" height="260" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites"
-                                data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i
-                                    class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="assets/images/product-2.png" alt="" width="360" />
-                            </a>
+            <div class="col-md-4 col-xs-6"
+                *ngFor="let prod of produtosMaisCurtidos | paginate: {itemsPerPage: 10, currentPage: p, totalItems:totalElementos}">
+                <div *ngIf="prod.produto.status == 'ATIVO' ">
+                    <article>
+                        <div class="info">
+                            <span class="add-favorite" (click)="favoritar($event, prod.produto.id)">
+                                <a href="javascript:void(0);" data-title="Curtir!" data-title-added="Obrigado!"
+                                    (click)="favoritarSpan($event,prod.produto.id)">
+                                    <i (click)="favoritarHeart($event,prod.produto.id)" class="icon icon-heart"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="btn btn-add" [routerLink]="['/contato',prod.produto.id]">
+                            <i class="icon icon-cart"></i>
                         </div>
                         <div class="text">
-                            <h2 class="title h4"><a href="product.html">Laura</a></h2>
-                            <sub>$ 3999,-</sub>
-                            <sup>$ 3499,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                                facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                            <h2 class="title h4"><a>{{prod.produto.nome}}</a></h2>
+                            <sub>R$ {{prod.produto.preco}}</sub>
+                            <sub>R$ {{prod.produto.preco}}</sub>
+
+                            <!--- <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span> -->
                         </div>
-                    </div>
-                </article>
+                        <div class="figure-grid" style="cursor: pointer !important; padding: 10px;"
+                            (click)="openModalProduto(templateModalProd, prod.produto.id)">
+                            <div class="image">
+                                <a class="mfp-open">
+                                    <img src="{{prod.url}}" alt="" width="250" height="260" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites"
-                                data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i
-                                    class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <span class="label label-warning">New</span>
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="assets/images/product-3.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Nude</a></h2>
-                            <sup>$ 2999,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                                facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites"
-                                data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i
-                                    class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="assets/images/product-4.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Aurora</a></h2>
-                            <sup>$ 299,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                                facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite added">
-                            <a href="javascript:void(0);" data-title="Add to favorites"
-                                data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i
-                                    class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <span class="label label-info">-50%</span>
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="assets/images/product-5.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Dining set</a></h2>
-                            <sub>$ 1999,-</sub>
-                            <sup>$ 1499,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                                facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites"
-                                data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i
-                                    class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="assets/images/product-6.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Seat chair</a></h2>
-                            <sup>$ 896,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur
-                                facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
         </div>
         <!--/row-->
         <!-- === button more === -->
 
         <div class="wrapper-more">
-            <a href="products-grid.html" class="btn btn-main">View store</a>
+            <a  class="btn btn-main" [routerLink]="['/produtos']">Conheça nossos Produtos</a>
         </div>
 
-        <!-- ========================  Product info popup - quick view ======================== -->
-
-        <div class="popup-main mfp-hide" id="productid1">
-
-            <!-- === product popup === -->
-
-            <div class="product">
-
-                <!-- === popup-title === -->
-
-                <div class="popup-title">
-                    <div class="h1 title">Laura <small>product category</small></div>
-                </div>
-
-                <!-- === product gallery === -->
-
-                <div class="owl-product-gallery">
-                    <img src="assets/images/product-1.png" alt="" width="640" />
-                    <img src="assets/images/product-2.png" alt="" width="640" />
-                    <img src="assets/images/product-3.png" alt="" width="640" />
-                    <img src="assets/images/product-4.png" alt="" width="640" />
-                </div>
-
-                <!-- === product-popup-info === -->
-
-                <div class="popup-content">
-                    <div class="product-info-wrapper">
-                        <div class="row">
-
-                            <!-- === left-column === -->
-
-                            <div class="col-sm-6">
-                                <div class="info-box">
-                                    <strong>Maifacturer</strong>
-                                    <span>Brand name</span>
-                                </div>
-                                <div class="info-box">
-                                    <strong>Materials</strong>
-                                    <span>Wood, Leather, Acrylic</span>
-                                </div>
-                                <div class="info-box">
-                                    <strong>Availability</strong>
-                                    <span><i class="fa fa-check-square-o"></i> in stock</span>
-                                </div>
-                            </div>
-
-                            <!-- === right-column === -->
-
-                            <div class="col-sm-6">
-                                <div class="info-box">
-                                    <strong>Available Colors</strong>
-                                    <div class="product-colors clearfix">
-                                        <span class="color-btn color-btn-red"></span>
-                                        <span class="color-btn color-btn-blue checked"></span>
-                                        <span class="color-btn color-btn-green"></span>
-                                        <span class="color-btn color-btn-gray"></span>
-                                        <span class="color-btn color-btn-biege"></span>
-                                    </div>
-                                </div>
-                                <div class="info-box">
-                                    <strong>Choose size</strong>
-                                    <div class="product-colors clearfix">
-                                        <span class="color-btn color-btn-biege">S</span>
-                                        <span class="color-btn color-btn-biege checked">M</span>
-                                        <span class="color-btn color-btn-biege">XL</span>
-                                        <span class="color-btn color-btn-biege">XXL</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--/row-->
-                    </div>
-                    <!--/product-info-wrapper-->
-                </div>
-                <!--/popup-content-->
-                <!-- === product-popup-footer === -->
-
-                <div class="popup-table">
-                    <div class="popup-cell">
-                        <div class="price">
-                            <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-                        </div>
-                    </div>
-                    <div class="popup-cell">
-                        <div class="popup-buttons">
-                            <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View
-                                    more</span></a>
-                            <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span
-                                    class="hidden-xs">Buy</span></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!--/product-->
-        </div>
-        <!--popup-main-->
     </div>
     <!--/container-->
 </section>
@@ -483,26 +245,113 @@
     <!-- === instagram gallery === -->
 
     <div class="gallery clearfix">
-        <a class="item" href="#">
-            <img src="assets/images/square-1.jpg" alt="Alternate Text" />
+        <a class="item" href="https://www.instagram.com/p/CClopuNDku4/" target="blank">
+            <img src="../../../assets/images/mesa_balcao.jpg" alt="mesa rustica" height="215" width="215" />
         </a>
-        <a class="item" href="#">
-            <img src="assets/images/square-2.jpg" alt="Alternate Text" />
+        <a class="item" href="https://www.instagram.com/p/CEKy1d3japX/" target="blank">
+            <img src="../../../assets/images/mesa_com_painel.jpg"  alt="mesa rustica moveis jatoba" height="215" width="215"/>
         </a>
-        <a class="item" href="#">
-            <img src="assets/images/square-3.jpg" alt="Alternate Text" />
+        <a class="item" href="https://www.instagram.com/p/CFCoA5-seD6/" target="blank">
+            <img src="../../../assets/images/bacos_com_almofadas.jpg" alt="mesa rustica moveis jatoba" height="215" width="215" />
         </a>
-        <a class="item" href="#">
-            <img src="assets/images/square-4.jpg" alt="Alternate Text" />
+        <a class="item" href="https://www.instagram.com/p/CDB0j0sDial/" target="blank">
+            <img src="../../../assets/images/3_bancos_piscina.JPG" alt="mesa rustica moveis jatoba" height="215" width="215"/>
         </a>
-        <a class="item" href="#">
-            <img src="assets/images/square-5.jpg" alt="Alternate Text" />
+        <a class="item" href="https://www.instagram.com/p/B81DwFMjkF3/" target="blank">
+            <img src="../../../assets/images/mesa_centro_lustre.jpg"alt="mesa rustica moveis jatoba" height="215" width="215"/>
         </a>
-        <a class="item" href="#">
-            <img src="assets/images/square-6.jpg" alt="Alternate Text" />
+        <a class="item" href="https://www.instagram.com/p/B84MIaxDLFZ/" target="blank"> 
+            <img src="../../../assets/images/carro_de_boi.jpg" alt="mesa rustica moveis jatoba" height="215" width="215"/>
         </a>
 
     </div>
     <!--/gallery-->
+
+    <ng-template #templateModalProd>
+        <div class="popup-main" style="margin-top: 30px;">
+
+            <!-- === product popup === -->
+
+            <div class="product">
+
+                <!-- === popup-title === -->
+
+                <div class="popup-title">
+                    <div class="h1 title">{{imagens[0].produto.nome}}</div>
+                </div>
+
+                <!-- === product gallery === -->
+
+                <div class="owl-product-gallery">
+                    <carousel>
+                        <slide *ngFor="let img of imagens">
+                            <img src="{{img.url}}" alt="first slide" style="display: block; width: 100%;">
+                        </slide>
+
+                    </carousel>
+                </div>
+
+                <!-- === product-popup-info === -->
+
+                <div class="popup-content">
+                    <div class="product-info-wrapper">
+                        <div class="row">
+
+                            <!-- === left-column === -->
+
+                            <div class="col-sm-6">
+                                <div class="info-box">
+                                    <strong>Altura</strong>
+                                    <span>1.5m</span>
+                                </div>
+                                <div class="info-box">
+                                    <strong>Largura</strong>
+                                    <span>1.0m</span>
+                                </div>
+
+                            </div>
+
+                            <!-- === right-column === -->
+
+                            <div class="col-sm-6">
+                                <div class="info-box">
+                                    <strong>Comprimento </strong>
+                                    <span> 2.0m</span>
+                                </div>
+                                <div class="info-box">
+                                    <strong>Peso</strong>
+                                    <span>70kg</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/product-info-wrapper-->
+                </div>
+                <!--/popup-content-->
+                <!-- === product-popup-footer === -->
+
+                <div class="popup-table">
+                    <div class="popup-cell">
+                        <div class="price">
+                            <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+                        </div>
+                    </div>
+                    <div class="popup-cell">
+                        <div class="popup-buttons">
+                            <a [routerLink]="['/contato',imagens[0].produto.id]" style="cursor: pointer;" (click)="produtoModalRef.hide()">
+                                <span class="icon icon-cart"></span> <span class="hidden-xs">Orçamento</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--/product-->
+        </div>
+        <!--popup-main-->
+
+    </ng-template>
 
 </section>

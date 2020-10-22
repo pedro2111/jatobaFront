@@ -371,6 +371,7 @@
 
     // Check if some filter boxes has class active
     // then show hidden filters
+    /*
     $('.filters .filter-box').each(function () {
         if ($(this).hasClass('active')) {
             $(this).find('.filter-content').show();
@@ -383,7 +384,7 @@
     $filtersTitle.append('<span>' + '</span>');
 
     // Toggle filter function
-    $filtersTitle.on('click', function (e) {
+   $filtersTitle.on('click', function (e) {
         var $this = $(this),
             $parent = $this.parent();
         $parent.toggleClass('active');
@@ -401,7 +402,7 @@
 
     $('.filters .filter-update').on('click', function (e) {
         $(this).closest('.filter-box')
-            .removeClass('active')
+           .removeClass('active')
             .find('.filter-content').slideUp(200);
     });
 
@@ -430,7 +431,7 @@
         }, 800);
         return false;
     });
-
+*/
 
     // Strecher accordion
     // ----------------------------------------------------------------

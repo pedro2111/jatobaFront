@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { ImagemService } from 'src/app/services/imagem.service';
 import { OrcamentoService } from 'src/app/services/orcamento.service';
+import { URL_SITE } from 'src/app/shared/app.api';
 import { Orcamento } from 'src/app/shared/orcamento';
 
 @Component({
@@ -30,7 +31,8 @@ export class ContatoComponent implements OnInit {
     private orcamentoService:OrcamentoService,
     private notifierService:NotifierService,
     private route:ActivatedRoute,
-    private imagemService:ImagemService) { }
+    private imagemService:ImagemService,
+    private router:Router) { }
 
 
   ngOnInit(): void {
@@ -57,6 +59,9 @@ export class ContatoComponent implements OnInit {
       (res) => {
         this.notifierService.notify('success', 'Solicitação enviada com sucesso!');
         this.formulario.reset();
+        setTimeout(() => {
+          window.location.href = URL_SITE;
+        }, 2000);
       }, (err) => {
         console.log(err)
       })

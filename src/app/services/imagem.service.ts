@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { URL_API } from '../shared/app.api';
 
 @Injectable({
@@ -32,9 +32,15 @@ export class ImagemService {
 
   }
 
-  public listarCapasPaginadas(page,size){
+  public listarCapasPaginadas(page,size,categoria:number[]){
 
-    return this.http.get(`${URL_API}/imagens/paginada?page=${page}&size=${size}&sort=id,desc`)
+    let catParams = new HttpParams();
+
+    catParams = catParams.append('categoria', categoria.join(', '))
+
+    
+
+    return this.http.get(`${URL_API}/imagens/paginada?page=${page}&size=${size}&sort=id,desc`, {params:catParams})
 
   }
 
@@ -46,5 +52,14 @@ export class ImagemService {
   public listarCapaByProduto(id){
 
     return this.http.get(`${URL_API}/imagens/produtoCapa/${id}`);
+  }
+
+  public listarMainProdutosMaisCurtidos(page,size) {
+
+    return this.http.get(`${URL_API}/imagens/mainProdutosMaisCurtidos`);
+  }
+  public listarUltimosProdutos(page,size) {
+
+    return this.http.get(`${URL_API}/imagens/mainUltimosProdutos`);
   }
 }

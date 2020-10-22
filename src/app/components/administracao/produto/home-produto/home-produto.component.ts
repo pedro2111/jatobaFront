@@ -28,10 +28,11 @@ export class HomeProdutoComponent implements OnInit {
   page = 0;
   size = 10;
   totalElementos;
+  categoria = [4]
 
   ngOnInit() {
     //this.listarProdutosCapas();
-    this.listarProdutosCapasPaginadas(this.page, this.size)
+    this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria)
 
   }
 
@@ -58,9 +59,9 @@ export class HomeProdutoComponent implements OnInit {
       })
   }
 
-  public listarProdutosCapasPaginadas(page, size) {
+  public listarProdutosCapasPaginadas(page, size, categoria) {
 
-    this.imagemService.listarCapasPaginadas(page, size).subscribe(
+    this.imagemService.listarCapasPaginadas(page, size,categoria).subscribe(
       (res) => {
         this.totalElementos = res['totalElements'],
           this.produtosCapas = res['content']
@@ -79,7 +80,7 @@ export class HomeProdutoComponent implements OnInit {
   }
   public getPage(page) {
     this.page = page - 1;
-    this.listarProdutosCapasPaginadas(this.page, this.size);
+    this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria);
 
   }
   public deletarProdutoComImagens(id) {
@@ -87,7 +88,7 @@ export class HomeProdutoComponent implements OnInit {
     this.produtoService.deletarProdutoComImagens(id).subscribe(
       (res) => {
         this.notifierService.notify('success', 'Produto Deletado com sucesso!');
-        this.listarProdutosCapasPaginadas(this.page, this.size);
+        this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria);
       }, (err) => {
         console.log(err)
       })
@@ -99,7 +100,7 @@ export class HomeProdutoComponent implements OnInit {
     this.produtoService.TrocarStatus(id).subscribe(
       (res: Produto) => {
 
-        this.listarProdutosCapasPaginadas(this.page, this.size)
+        this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria)
 
       })
   }
