@@ -74,16 +74,16 @@
 
             <!-- === icon item === -->
 
-            <a href="#">
+            <a [routerLink]="['/produtos']" [queryParams]="{categoria:4}">
                 <figure>
                     <i class="f-icon f-icon-chair"></i>
-                    <figcaption>Cadeiras</figcaption>
+                    <figcaption>Bancos</figcaption>
                 </figure>
             </a>
 
             <!-- === icon item === -->
 
-            <a href="#">
+            <a [routerLink]="['/produtos']" [queryParams]="{categoria:1}">
                 <figure>
                     <i class="f-icon f-icon-dining-table"></i>
                     <figcaption>Mesas</figcaption>
@@ -92,7 +92,7 @@
 
             <!-- === icon item === -->
 
-            <a href="#">
+            <a [routerLink]="['/produtos']" [queryParams]="{categoria:2}">
                 <figure>
                     <i class="f-icon f-icon-media-cabinet"></i>
                     <figcaption>Aparadores</figcaption>
@@ -101,16 +101,7 @@
 
             <!-- === icon item === -->
 
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-table"></i>
-                    <figcaption>Mesas de centro</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
+            <a [routerLink]="['/produtos']" [queryParams]="{categoria:3}">
                 <figure>
                     <i class="f-icon f-icon-bookcase"></i>
                     <figcaption>Cristaleiras</figcaption>
