@@ -25,100 +25,32 @@
 
             <div class="row">
 
+
                 <!-- === product-filters === -->
 
-                <div class="col-md-3 col-xs-12">
-                    <div class="filters">
-                        <div class="filter-box" [ngClass]="{'active': toogleActive}">
-                            <div class="title" (click)="activeFilter()">
-                                Filtros
-                            </div>
-                            <div class="filter-content" [style.display]="toogleActive ? 'block' : 'none'">
-                                <form novalidate [formGroup]="formulario" (submit)="filtrar()">
-                                    <span class="checkbox">
-                                        <input type="radio" id="todosId" value="0" formControlName="categoria"
-                                            name="categoria">
-                                        <label for="todosId">Todos</label>
-                                    </span>
-                                    <span class="checkbox">
-                                        <input type="radio" id="aparadorId" value="2" formControlName="categoria"
-                                            name="categoria">
-                                        <label for="aparadorId">Aparador</label>
-                                    </span>
-                                    <span class="checkbox">
-                                        <input type="radio" id="bancoId" value="4" formControlName="categoria"
-                                            name="categoria">
-                                        <label for="bancoId">Bancos</label>
-                                    </span>
-                                    <span class="checkbox">
-                                        <input type="radio" id="cristaleiraId" value="3" formControlName="categoria"
-                                            name="categoria">
-                                        <label for="cristaleiraId">Cristaleira</label>
-                                    </span>
-                                    <span class="checkbox">
-                                        <input type="radio" id="mesaId" value="1" formControlName="categoria"
-                                            name="categoria">
-                                        <label for="mesaId">Mesa</label>
-                                    </span>
-                                    <button type="submit" class="toggle-filters-close btn btn-main"
-                                        style="margin-top: 25px;"> Filtrar!</button>
-                                </form>
-                            </div>
-                        </div>
-                        <!--/filter-box-->
-
-                        <!--<div id="accordion">
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <div class="filter-box" [ngClass]="{'active': toogleActive}">
-                                        <div class="title collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo" (click)="activeFilter()">
-                                            filtrar 2
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                    data-parent="#accordion">
-                                    <div class="conteudo-filtro">
-                                        <form novalidate [formGroup]="formulario" (submit)="filtrar()">
-                                            <div class="checkbox">
-                                                <input class="form-check-input" type="radio" name="todos" formControlName="todos" id="todos1" value="0" checked>
-                                                <label class="form-check-label" for="todos1">
-                                                    Todos
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                                <label class="form-check-label" for="exampleRadios2">
-                                                    Second default radio
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                                <label class="form-check-label" for="exampleRadios3">
-                                                    Disabled radio
-                                                </label>
-                                            </div>
-
-                                            <button type="submit" class="toggle-filters-close btn btn-main"
-                                                style="margin-top: 25px;"> Filtrar!</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    -->
-                    </div>
-                    <!--/filters-->
-                </div>
+      
 
                 <!--product items-->
 
-                <div class="col-md-9 col-xs-12">
+                <div class="col-md-12 col-xs-12">
+                    <div class="sort-bar clearfix">
+                        <!--Sort options-->
+                        <div class="sort-options pull-right">
+                            <span class="">Filtrar Categorias &nbsp;</span>
+                            <select (change)="filtrarMobile($event.target.value)">
+                                <option value="0">Todos</option>
+                                <option value="2">Aparador</option>
+                                <option value="4">Banco</option>
+                                <option value="3">Cristaleira</option>
+                                <option value="1">Mesa</option>
+                            </select>
+                            <!--Grid-list view-->
+                        </div>
+                    </div>
                     <div class="row">
                         <!-- === product-item === -->
 
-                        <div class="col-md-6 col-xs-6"
+                        <div class="col-md-4 col-xs-4 col-sm-12 col-12"
                             *ngFor="let prod of produtosCapas | paginate: {itemsPerPage: 10, currentPage: p, totalItems:totalElementos}">
                             <div *ngIf="prod.produto.status == 'ATIVO' ">
                                 <article>

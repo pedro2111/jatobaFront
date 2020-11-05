@@ -27,7 +27,7 @@ export class HomeProdutoShopComponent implements OnInit {
   totalElementos;
   produtosCapas;
   page = 0;
-  size = 10;
+  size = 9;
   p;
   imagens?;
   toogleActive = false;
@@ -49,9 +49,6 @@ export class HomeProdutoShopComponent implements OnInit {
     );
 
     //this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria);
-
-
-
   }
 
   public openModalProduto(template: TemplateRef<any>, produtoId) {
@@ -126,6 +123,15 @@ export class HomeProdutoShopComponent implements OnInit {
     }
 
     this.listarProdutosCapasPaginadas(this.page, this.size, this.categoria);
+  }
+
+  public filtrarMobile (categoria){
+
+    if(categoria == 0){
+      categoria = [1,2,3,4]
+    }
+    this.listarProdutosCapasPaginadas(this.page, this.size, [categoria]);
+
   }
 
 }
