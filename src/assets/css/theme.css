@@ -4234,6 +4234,10 @@ nav .cart-wrapper.open {
     .scroll-top.active {
         bottom: 545px;
     }
+    .ml-18{
+        margin-left: 18%;
+
+    }
 }
 
 @media (min-width: 992px) {
