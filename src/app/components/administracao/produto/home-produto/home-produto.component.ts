@@ -28,7 +28,7 @@ export class HomeProdutoComponent implements OnInit {
   page = 0;
   size = 10;
   totalElementos;
-  categoria = [4]
+  categoria = [1,2,3,4]
 
   ngOnInit() {
     //this.listarProdutosCapas();
