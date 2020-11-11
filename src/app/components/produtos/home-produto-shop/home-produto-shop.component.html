@@ -69,8 +69,8 @@
                                     </div>
                                     <div class="text">
                                         <h2 class="title h4"><a>{{prod.produto.nome}}</a></h2>
-                                        <sub>R$ {{prod.produto.preco}}</sub>
-                                        <sub>R$ {{prod.produto.preco}}</sub>
+                                        <sub *ngIf="prod.produto.preco != 0" >R$ {{prod.produto.preco}}</sub>
+                                        <sub *ngIf="prod.produto.preco != 0" >R$ {{prod.produto.preco}}</sub>
 
                                         <!--- <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span> -->
                                     </div>
@@ -127,15 +127,20 @@
                                 <div class="row">
 
                                     <!-- === left-column === -->
+                                    <div class="col-sm-12" style="margin-bottom: 4%;">
+                                        <div class="info-box">
+                                            <span> {{imagens[0].produto.descricao}}</span>
+                                        </div>
+                                    </div>
 
                                     <div class="col-sm-6">
                                         <div class="info-box">
                                             <strong>Altura</strong>
-                                            <span>1.5m</span>
+                                            <span>{{imagens[0].produto.altura}}m</span>
                                         </div>
                                         <div class="info-box">
                                             <strong>Largura</strong>
-                                            <span>1.0m</span>
+                                            <span>{{imagens[0].produto.largura}}m</span>
                                         </div>
 
                                     </div>
@@ -145,11 +150,11 @@
                                     <div class="col-sm-6">
                                         <div class="info-box">
                                             <strong>Comprimento </strong>
-                                            <span> 2.0m</span>
+                                            <span> {{imagens[0].produto.profundidade}}m</span>
                                         </div>
                                         <div class="info-box">
                                             <strong>Peso</strong>
-                                            <span>70kg</span>
+                                            <span>{{imagens[0].produto.peso}}kg</span>
                                         </div>
                                     </div>
 
@@ -163,8 +168,8 @@
 
                         <div class="popup-table">
                             <div class="popup-cell">
-                                <div class="price">
-                                    <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+                                <div class="price" *ngIf="imagens[0].produto.preco != 0">
+                                    <span class="h3">R$ {{imagens[0].produto.preco}} <small>R$ {{imagens[0].produto.preco}}</small></span>
                                 </div>
                             </div>
                             <div class="popup-cell">
