@@ -4592,7 +4592,7 @@ nav .cart-wrapper.open {
 }
 
 .checkout .cart-block > div.quantity, .checkout .cart-block > div.price {
-    width: 50%;
+    width: 60%;
     float: left;
 }
 
